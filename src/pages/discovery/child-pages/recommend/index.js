@@ -1,28 +1,20 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getTopBannersAction } from "@/store/recommend/actionCreators";
 
 const Recommend = (props) => {
+  const dispatch = useDispatch();
+  // useSelector，有个缺陷，它接受第一个参数是一个回调函数，
+  //决定渲染不渲染在于return的对象与之前的对象是否 ===，但是函数每一次执行，返回的对象都不一样，
+  //所以每一个都会渲染，所以需要传入第二个参数，不只是简单的进行 === 比较，
+  const { topBanners } = useSelector(({ recommendReducer }) => {
+    return { topBanners: recommendReducer.topBanners };
+  }, shallowEqual);
   useEffect(() => {
-    props.getBanners();
-  }, []);
-  return <div>Recommend{props.banners.length}</div>;
+    dispatch(getTopBannersAction);
+  }, [dispatch]);
+  return <div>Recommend{topBanners?.length}</div>;
 };
 
-Recommend.propTypes = {};
-
-export default connect(
-  (state) => {
-    return { banners: state?.recommendReducer?.topBanners };
-  },
-  (dispatch) => {
-    return {
-      getBanners: () => {
-        //当dispatch一个函数时，会执行回调函数，
-        //并且在执行时，传入dispatch函数，在请求拿到结果之后，派发action
-        dispatch(getTopBannersAction);
-      },
-    };
-  }
-)(Recommend);
+export default Recommend;
