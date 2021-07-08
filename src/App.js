@@ -8,7 +8,6 @@ function App() {
     <div>
       <AppHeader />
       {renderRoutes(routes)}
-      content
       <AppFooter />
     </div>
   );

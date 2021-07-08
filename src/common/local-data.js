@@ -61,3 +61,31 @@ export const footerImages = [
     link: "https://music.163.com/uservideo#/plan",
   },
 ];
+
+// discover中的数据
+export const dicoverMenu = [
+  {
+    title: "推荐",
+    link: "/discovery/recommend",
+  },
+  {
+    title: "排行榜",
+    link: "/discovery/ranking",
+  },
+  {
+    title: "歌单",
+    link: "/discovery/songs",
+  },
+  {
+    title: "主播电台",
+    link: "/discovery/djradio",
+  },
+  {
+    title: "歌手",
+    link: "/discovery/artist",
+  },
+  {
+    title: "新碟上架",
+    link: "/discovery/album",
+  },
+];
