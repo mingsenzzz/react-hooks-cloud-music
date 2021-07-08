@@ -34,7 +34,9 @@ const AppHeader = () => {
           <div className="select-list">
             {headerLinks.map((item, index) => {
               return (
-                <div className="select-item">{showSelectItem(item, index)}</div>
+                <div className="select-item" key={index}>
+                  {showSelectItem(item, index)}
+                </div>
               );
             })}
           </div>
