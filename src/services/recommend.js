@@ -5,3 +5,9 @@ export function getTopBannersRequest(params) {
     params: {},
   });
 }
+
+export function getHotRecommendList() {
+  return request({
+    url: "/personalized",
+  });
+}

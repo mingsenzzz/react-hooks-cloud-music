@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getTopBannersAction } from "@/store/recommend/actionCreators";
 
@@ -9,8 +8,6 @@ const Recommend = (props) => {
   }, []);
   return <div>Recommend{props.banners.length}</div>;
 };
-
-Recommend.propTypes = {};
 
 export default connect(
   (state) => {

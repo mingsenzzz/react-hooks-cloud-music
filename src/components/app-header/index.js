@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { headerLinks } from "@/common/local-data.js";
@@ -55,7 +54,5 @@ const AppHeader = () => {
     </HeaderWrapper>
   );
 };
-
-AppHeader.propTypes = {};
 
 export default AppHeader;
